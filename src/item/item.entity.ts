@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, PrimaryColumn, Index, ManyToOne, OneToOne } from "typeorm";
-import { v4 as uuidv4 } from "uuid";
 import { Event } from "../event/event.entity"
 import { Reservation } from "src/reservation/reservation.entity";
 
@@ -11,8 +10,8 @@ export enum ItemStatus {
 
 @Entity('item')
 export class Item {
-    @PrimaryColumn('uuid')
-    id: string = uuidv4();
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
     
     @Column()
     name: string;
